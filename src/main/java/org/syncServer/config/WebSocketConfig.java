@@ -1,0 +1,56 @@
+package org.syncServer.config;
+
+import java.util.List;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageHeaders;
+import org.springframework.messaging.converter.MessageConverter;
+import org.springframework.messaging.simp.config.ChannelRegistration;
+import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
+import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
+import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
+import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+import org.springframework.web.socket.config.annotation.WebSocketTransportRegistration;
+
+
+@Configuration
+@EnableWebSocketMessageBroker
+public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+
+	@Override
+	public void configureMessageBroker(MessageBrokerRegistry config) {
+		config.enableSimpleBroker("/topic");
+		config.setApplicationDestinationPrefixes("/app");
+	}
+
+	@Override
+	public void registerStompEndpoints(StompEndpointRegistry registry) {
+		registry.addEndpoint("/hello");
+	}
+	
+
+	@Override
+	public void configureClientInboundChannel(ChannelRegistration channelRegistration) {
+	}
+
+	@Override
+	public void configureClientOutboundChannel(ChannelRegistration channelRegistration) {
+	}
+
+	@Override
+	public boolean configureMessageConverters(List<MessageConverter> arg0) {
+		
+		return true;
+	}
+
+	@Override
+	public void configureWebSocketTransport(WebSocketTransportRegistration arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+}

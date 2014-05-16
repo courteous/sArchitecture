@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html layout:decorator="layout">
+
+<head> 
+<title>syncServer File upload example</title>
+</head>
+  <body>
+    <div layout:fragment="content">
+
+    <div >
+        <form th:action="@{/upload}" enctype="multipart/form-data" th:method="post">
+            <fieldset>
+                     <legend>File to upload:</legend>
+                     <input type="file" name="myFile" />
+                     <label>Name :</label>
+                     <input type="text" name="myName"/>
+                     <input type="submit" />
+            </fieldset>
+    </form>
+    </div>
+
+    </div>
+
+  </body>
+</html>

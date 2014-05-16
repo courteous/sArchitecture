@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="layout :: headerFragment"> </head>
+
+
+<title>Getting Started: Serving Web Content</title>
+
+<body>
+
+  <div th:include="layout :: menuTopFragment" > </div>
+
+
+ 
+ 
+ <div>
+ <label>Manual tests :</label>
+<br/>
+<a href="http://localhost:8080/upload">HTTP upload</a> 
+<br/>
+<a href="https://localhost:8888/upload">HTTPS upload</a> 
+<br/>
+<br/>
+<br/>
+<a href="http://127.0.0.5:8080/wsTest">HTTP web sockets</a> 
+<br/>
+<a href="https://127.0.0.5:8888/wsTest">HTTPS web sockets</a> 
+<br/>
+
+
+
+</div>
+
+
+
+<div th:include="layout :: footerFragment"> </div>
+
+<div th:include="layout :: customefooterFragment"> </div>
+  
+</body>
+</html>

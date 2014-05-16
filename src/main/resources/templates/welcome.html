@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html layout:decorator="layout">
+
+<head> 
+<title>Getting Started: Serving Web Content</title>
+
+</head>
+
+
+<body>
+	 <div layout:fragment="content">
+<!--       <table class="table table-bordered table-striped"> -->
+<!--         <thead> -->
+<!--           <tr> -->
+<!--             <td>ID</td> -->
+<!--             <td>Title</td> -->
+<!--             <td>Text</td> -->
+<!--             <td>Due to</td> -->
+<!--           </tr> -->
+<!--         </thead> -->
+<!--         <tbody> -->
+<!--           <tr th:if="${tasks.empty}"> -->
+<!--             <td colspan="4">No tasks</td> -->
+<!--           </tr> -->
+<!--           <tr th:each="task : ${tasks}"> -->
+<!--             <td th:text="${task.id}">1</td> -->
+<!--             <td><a href="view.html" th:href="@{'/' + ${task.id}}" th:text="${task.title}">Title ...</a></td> -->
+<!--             <td th:text="${task.text}">Text ...</td> -->
+<!--             <td th:text="${#calendars.format(task.dueTo)}">July 11, 2012 2:17:16 PM CDT</td> -->
+<!--           </tr> -->
+<!--         </tbody> -->
+<!--       </table> -->
+  
+  
+    
+    <label>Name :</label>
+
+
+      Hello <b th:text="${user}">offline user</b>
+    
+<br/>
+ RealUser	<b th:text="${#httpServletRequest.contextPath}"> </b>
+
+<p>Session value: </p>
+<p>Locale displayLanguage: <span th:text="${#locale.displayLanguage}">Offline Locale</span></p>
+<p>Locale country: <span th:text="${#locale.country}">Offline Locale</span></p>
+<p>Locale spring: <span th:text="${Language}">Offline Locale</span></p>
+<p>Today is: <span th:text="${#calendars.format(today,'dd MMMM yyyy')}">Empty</span></p>
+
+<p>This text is form  the messages file: <span th:text="#{Profile.NAME}">offline Profile Name</span></p>
+  
+  
+  
+
+    
+    </div>
+</body>
+
+</html>
