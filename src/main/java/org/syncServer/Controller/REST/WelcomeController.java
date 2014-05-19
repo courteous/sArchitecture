@@ -47,11 +47,6 @@ public class WelcomeController {
 	}
 
 
-	@RequestMapping(value = "/test1", method=RequestMethod.GET)
-	public String layout(){
-		
-		return "test1";
-			
-	}
+
 	
 }

@@ -18,28 +18,16 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
+import org.thymeleaf.spring4.view.ThymeleafViewResolver;
+import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 @ComponentScan(basePackages = "org.syncServer.*")
 @Configuration
 @EnableWebSocketMessageBroker
 @EnableAutoConfiguration
 public class Application extends SpringBootServletInitializer {
-
-	@Bean
-	public ServletRegistrationBean dispatcherRegistration() {
-
-		System.out.println("SERVLET REGISTRATION");
-		ServletRegistrationBean registration = new ServletRegistrationBean(
-				dispatcherServlet());
-
-		System.out.println("SERVLET REGISTERED NAME is: "
-				+ registration.getServletName().toString());
-		registration.addUrlMappings("/");
-
-		return registration;
-	}
-
 
 	
 	@Bean(name = DispatcherServletAutoConfiguration.DEFAULT_DISPATCHER_SERVLET_BEAN_NAME)
@@ -90,19 +78,19 @@ public class Application extends SpringBootServletInitializer {
 
 		}
 
-		// InternalResourceViewResolver ire =
-		// ctx.getBean(InternalResourceViewResolver.class);
-		// int order = ire.getOrder();
-		// System.out.println("InternalResourceViewResolver Order is:" + order);
-
-		// ThymeleafViewResolver tre = ctx.getBean(ThymeleafViewResolver.class);
-		// int torder = tre.getOrder();
-		// System.out.println("ThymeleafViewResolver Order is:" + torder);
 
 		System.out.println("Start Tests");
 		
 
-		
+		 ThymeleafViewResolver tre = ctx.getBean(ThymeleafViewResolver.class);
+		 int torder = tre.getOrder();
+		 System.out.println("ThymeleafViewResolver Order is:" + torder);
+
+		 
+		 
+
+		 
+		 
 
 	}
 

@@ -18,15 +18,18 @@ import org.springframework.web.SpringServletContainerInitializer;
 @Profile("HTTPOnly")
 public class TomcatEmbededHTTPOnly extends SpringServletContainerInitializer{
 
+	
+
+
+//	final String ciphers = "ECDHE-RSA-AES256-GCM-SHA384,ECDHE-RSA-AES128-GCM-SHA256,DHE-RSA-AES256-GCM-SHA384,DHE-RSA-AES128-GCM-SHA256
 
 	
 	@Bean
 	public EmbeddedServletContainerFactory servletContainer() {
 		
-		final TomcatConnectorProperties tomcatProperties = new TomcatConnectorProperties();
-
 		
-		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory(tomcatProperties.getHttp_port());
+		
+		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory(8080);
 		
 	
 		factory.setTomcatContextCustomizers(
@@ -41,14 +44,10 @@ public class TomcatEmbededHTTPOnly extends SpringServletContainerInitializer{
 			@Override
 			public void customize(Connector con) {
 				 	
-				con.setURIEncoding("UTF-8");
-				con.setScheme(tomcatProperties.getHttp_scheme());
+				con.setScheme("http");
 				con.setSecure(false);
-				con.setPort(tomcatProperties.getHttp_port());
+				con.setPort(8080);
 				System.out.println("INIT HTTP");
-				
-				
-				
 				
 				}
 			}
